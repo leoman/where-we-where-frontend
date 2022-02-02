@@ -21,7 +21,7 @@ function App() {
       setLoading(true);
 
       // const result = await fetch('http://localhost:3000/api/date/01-05-2019');
-      const result = await fetch('http://localhost:3000/api');
+      const result = await fetch('https://pvtnedfa6g.execute-api.eu-west-2.amazonaws.com/dev');
       const response: Response = await result.json();
       console.log(response);
       setMedia(response.media);
