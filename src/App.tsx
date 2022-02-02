@@ -20,9 +20,8 @@ function App() {
     async function fetchData() {
       setLoading(true);
 
-      // const result = await fetch('http://localhost:3000/api/date/20-08-2019');
-      const result = await fetch('http://localhost:3000/api/date/01-05-2019');
-      // const result = await fetch('http://localhost:3000/api');
+      // const result = await fetch('http://localhost:3000/api/date/01-05-2019');
+      const result = await fetch('http://localhost:3000/api');
       const response: Response = await result.json();
       console.log(response);
       setMedia(response.media);
