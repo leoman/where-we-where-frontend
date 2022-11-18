@@ -24,11 +24,11 @@ function App() {
       const result = await fetch('https://pvtnedfa6g.execute-api.eu-west-2.amazonaws.com/dev');
       const response: Response = await result.json();
       console.log(response);
-      setMedia(response.media);
-      setResult(response.result);
-      setDate(response.date);
-      if (response.media.length) {
-        setMainMedia(response.media[0])
+      setMedia(response.result.media);
+      setResult(response.result.result);
+      setDate(response.result.date);
+      if (response.result.media.length) {
+        setMainMedia(response.result.media[0])
       }
       setLoading(false);
       setLoaded(true);

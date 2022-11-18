@@ -34,10 +34,16 @@ export interface GoogleImage {
   }
 }
 
-export interface Response {
+export interface Gallery {
   media: GoogleImage[];
   result: string;
   date: string;
+}
+
+export interface Response {
+  code: GoogleImage[];
+  message: string;
+  result: Gallery;
 }
 
 export interface ImageProps {
