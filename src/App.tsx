@@ -2,7 +2,7 @@ import React, { useEffect, useState, useCallback } from 'react';
 import Header from './components/Header';
 import MainMedia from './components/MainMedia';
 import Images from './components/Images';
-import { GoogleImage, Response } from './types';
+import { Gallery, GoogleImage } from './types';
 
 import './App.css';
 
@@ -20,15 +20,16 @@ function App() {
     async function fetchData() {
       setLoading(true);
 
-      // const result = await fetch('http://localhost:3000/api/date/01-05-2019');
-      const result = await fetch('https://pvtnedfa6g.execute-api.eu-west-2.amazonaws.com/dev');
-      const response: Response = await result.json();
+      // const result = await fetch('http://localhost:3000/dev/photos');
+      const result = await fetch('https://oa08yrhinc.execute-api.eu-west-2.amazonaws.com/prod/photos');
+      const response: Gallery = await result.json();
       console.log(response);
-      setMedia(response.result.media);
-      setResult(response.result.result);
-      setDate(response.result.date);
-      if (response.result.media.length) {
-        setMainMedia(response.result.media[0])
+      setMedia(response.media);
+      setResult(response.result);
+      setDate(response.date);
+      console.log(response);
+      if (response.media?.length) {
+        setMainMedia(response.media[0])
       }
       setLoading(false);
       setLoaded(true);
@@ -44,6 +45,8 @@ function App() {
   if (loading || !loaded) {
     return null;
   }
+
+  console.log("result", result);
 
   return (
     <section className="gallery">

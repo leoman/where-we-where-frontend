@@ -20,6 +20,7 @@ const PrevArrow = ({ className, style, onClick }: Arrow) => (
 );
 
 const Images = ({ images, onClick }: ImagesProps) => {
+  if (!images) return null;
   const imagesLength = images.length;
   const slidesToShow = imagesLength > 5 ? 5: imagesLength
   
